@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#121212">
+  <title>ClipEdit Mobile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>ClipEdit</h1>
+    <button id="addClipBtn" class="btn-primary">+ Add Clips</button>
+  </header>
+
+  <main class="app-container">
+    <div class="preview-container">
+      <video id="previewVideo" class="preview-video" autoplay muted playsinline loop></video>
+      <div class="crop-overlay" id="cropOverlay"></div>
+      <canvas id="exportCanvas" style="display:none;"></canvas>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-strip" id="timelineStrip"></div>
+    </div>
+
+    <div class="controls-panel" id="controlsPanel">
+      <div class="control-group">
+        <label>Brightness</label>
+        <input type="range" id="brightness" min="-100" max="100" value="0">
+      </div>
+      <div class="control-group">
+        <label>Contrast</label>
+        <input type="range" id="contrast" min="-100" max="100" value="0">
+      </div>
+      <div class="control-group">
+        <label>Hue</label>
+        <input type="range" id="hue" min="-180" max="180" value="0">
+      </div>
+      <div class="control-group">
+        <label>Filters</label>
+        <div class="filter-grid" id="filterGrid">
+          <button class="filter-btn active" data-filter="none">Normal</button>
+          <button class="filter-btn" data-filter="grayscale">B&W</button>
+          <button class="filter-btn" data-filter="sepia">Vintage</button>
+          <button class="filter-btn" data-filter="invert">Invert</button>
+          <button class="filter-btn" data-filter="blur">Blur</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>Crop Aspect</label>
+        <div class="aspect-grid">
+          <button class="aspect-btn active" data-ratio="free">Free</button>
+          <button class="aspect-btn" data-ratio="9:16">9:16</button>
+          <button class="aspect-btn" data-ratio="1:1">1:1</button>
+          <button class="aspect-btn" data-ratio="16:9">16:9</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <button id="exportVideoBtn" class="nav-btn">Export MP4</button>
+    <button id="exportGifBtn" class="nav-btn">Export GIF</button>
+  </nav>
+
+  <input type="file" id="fileInput" multiple accept="video/*" hidden>
+  <div id="loadingOverlay" class="overlay hidden">
+    <div class="spinner"></div>
+    <p id="loadingText">Processing...</p>
+    <progress id="exportProgress" max="100" value="0"></progress>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
