@@ -124,6 +124,93 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  @keyframes marqueeLeft {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+
+  @keyframes marqueeRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+  }
+
+  @keyframes marqueeUp {
+    from { transform: translateY(-200%); }
+    to { transform: translateY(200%); }
+  }
+
+  @keyframes marqueeDown {
+    from { transform: translateY(200%); }
+    to { transform: translateY(-200%); }
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes zoomOut {
+    0% { transform: scale(1.5); opacity: 1; }
+    50% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+
+  @keyframes dancingText {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(-5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  @keyframes earthquake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  @keyframes crackText {
+    0% { transform: skewX(0); letter-spacing: normal; }
+    20% { transform: skewX(-15deg); letter-spacing: 2px; }
+    40% { transform: skewX(15deg) translateY(5px); letter-spacing: -2px; }
+    60% { transform: skewX(-5deg) translateY(-2px); letter-spacing: 4px; }
+    80% { transform: skewX(5deg); letter-spacing: 1px; }
+    100% { transform: skewX(0); letter-spacing: normal; }
+  }
+
+  @keyframes blastText {
+    0% { transform: scale(1); opacity: 1; filter: blur(0); }
+    50% { transform: scale(2.5); opacity: 0.5; filter: blur(4px); letter-spacing: 15px; }
+    100% { transform: scale(3); opacity: 0; filter: blur(10px); }
+  }
+
+  .news-headline-style {
+    position: absolute !important;
+    bottom: 5% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    background: rgba(200, 0, 0, 0.8) !important;
+    color: white !important;
+    padding: 10px 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
   /* ===== HOME VIEW ===== */
   .home { padding: 20px 20px 100px; }
 

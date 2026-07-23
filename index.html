@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="theme-color" content="#0f0f14" />
 <title>ClipForge — AI Mobile Video Editor</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Bebas+Neue&family=Cinzel:wght@400;700&family=Oswald:wght@400;700&family=Righteous&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" /></head>
 <body>
@@ -275,6 +275,10 @@
               <div class="template-preview" style="background: linear-gradient(135deg, #30cfd0, #330867);"><span>NEON</span></div>
               <div class="template-info"><div class="template-name">Neon Sign</div><div class="template-meta">Text Effect</div></div>
             </div>
+            <div class="template">
+              <div class="template-preview" style="background: linear-gradient(135deg, #141e30, #243b55); font-family: 'Georgia', serif; letter-spacing: 2px;"><span>MOVIE</span></div>
+              <div class="template-info"><div class="template-name">Cinematic Intro</div><div class="template-meta">Text Effect</div></div>
+            </div>
           </div>
         </div>
         
@@ -319,6 +323,10 @@
               <div class="template-preview" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"><span>GAMING</span></div>
               <div class="template-info"><div class="template-name">Gaming Intro</div><div class="template-meta">12s · 16:9</div></div>
             </div>
+            <div class="template">
+              <div class="template-preview" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); font-family: 'Georgia', serif; letter-spacing: 2px;"><span>CINEMA</span></div>
+              <div class="template-info"><div class="template-name">Cinematic Title</div><div class="template-meta">8s · 16:9</div></div>
+            </div>
           </div>
         </div>
         
@@ -337,16 +345,35 @@
             </svg>
           </button>
           <div class="editor-title">Project Name</div>
-          <div class="font-tool" id="fontTool">
-            <select id="fontFamilySelect">
+          <div class="font-tool" id="fontTool" style="display: none; align-items: center; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+            <select id="fontFamilySelect" title="Font Family">
               <option value="Inter">Inter</option>
               <option value="Arial, sans-serif">Arial</option>
               <option value="'Courier New', monospace">Courier</option>
               <option value="Georgia, serif">Georgia</option>
               <option value="Impact, sans-serif">Impact</option>
+              <option value="'Bebas Neue', sans-serif">Bebas Neue</option>
+              <option value="'Cinzel', serif">Cinzel</option>
+              <option value="'Oswald', sans-serif">Oswald</option>
+              <option value="'Righteous', cursive">Righteous</option>
+              <option value="'Playfair Display', serif">Playfair Display</option>
+              <option value="'Montserrat', sans-serif">Montserrat</option>
               <option value="'Comic Sans MS', cursive">Comic Sans</option>
               <option value="'Brush Script MT', cursive">Brush Script</option>
             </select>
+            <input type="number" id="fontSizeInput" value="22" min="10" max="120" title="Font Size" style="width: 50px; background: var(--bg-card); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 4px; font-size: 12px;">
+            <input type="color" id="fontColorInput" value="#ffffff" title="Font Color" style="width: 26px; height: 26px; border: none; background: transparent; cursor: pointer; padding: 0;">
+            <button class="tool-btn" id="boldBtn" title="Bold" style="font-weight: bold; font-family: serif; font-size: 14px;">B</button>
+            <button class="tool-btn" id="italicBtn" title="Italic" style="font-style: italic; font-family: serif; font-size: 14px;">I</button>
+            <button class="tool-btn" id="underlineBtn" title="Underline" style="text-decoration: underline; font-family: serif; font-size: 14px;">U</button>
+            <button class="tool-btn" id="shadowBtn" title="Text Shadow" style="font-weight: bold; text-shadow: 1px 1px 2px #fff; font-size: 12px; font-family: serif;">S</button>
+            <button class="tool-btn" id="wrapBtn" title="Text Wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                <path d="M4 6h16M4 12h10M4 18h10"></path>
+                <path d="M14 12a3 3 0 0 1 0 6H12"></path>
+                <polyline points="13 16 12 18 13 20"></polyline>
+              </svg>
+            </button>
           </div>
           <div class="header-actions">
             <button class="icon-btn" title="Save Project" id="saveProjectBtn">
@@ -378,7 +405,6 @@
             </div>
             <div class="preview-text">
               <h2 id="canvasTextEditor" contenteditable="true" spellcheck="false" style="outline: none;">Summer Vibes</h2>
-              <p>A cinematic journey through the seasons</p>
             </div>
           </div>
         </div>
@@ -444,6 +470,7 @@
           <div class="tools-tabs">
             <button class="tool-tab active">Filters</button>
             <button class="tool-tab">Text</button>
+            <button class="tool-tab">Text FX</button>
             <button class="tool-tab">Audio</button>
             <button class="tool-tab">Transitions</button>
             <button class="tool-tab">Stickers</button>
